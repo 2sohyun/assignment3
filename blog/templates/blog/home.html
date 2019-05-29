@@ -11,6 +11,18 @@
         <p class="card-text">{{ blog.pub_date }}</p>
         <a href="{% url 'edit' pk=blog.pk %}" class="btn btn-primary">수정</a>
         <a href="{% url 'remove' pk=blog.pk %}" class="btn btn-primary">삭제</a>
+        <a role="button" class="btn btn-primary" href="{% url 'comment' blog.id %}">댓글</a>
+
+        <hr>
+        <div>
+          {% for comment in blog.comments.all %}
+        <p> {{ comment }} </p>
+          <div class = "button">
+            <a role="button" class="btn-outline-secondary" href="{% url 'comment_edit' blog.id comment.id %}">댓글수정</a>
+            <a role="button" class="btn-outline-danger" href="{% url 'comment_remove' blog.id comment.id %}">댓글삭제</a>
+         
+          </div>
+        {% endfor %}
       </div>
     </div>
     <br>

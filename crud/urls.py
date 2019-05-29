@@ -24,4 +24,7 @@ urlpatterns = [
     path('blog/<int:pk>/edit/', blog.views.edit, name='edit'),  # edit
     path('blog/<int:pk>/remove/', blog.views.remove, name='remove'),  # delete
     # path('blog/lay', blog.views.MainpageView.as_view(), name='mainpage')
+    path('blog/<int:blog_id>/comment/', blog.views.detail, name='comment'),
+    path('blog/<int:blog_id>/comment_edit/<int:pk>/', blog.views.comment_edit, name='comment_edit'),
+    path('blog/<int:blog_id>/comment_remove/<int:pk>/', blog.views.comment_remove, name='comment_remove'),
 ]
